@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:synthetic-data-generation-ui": "node dist/synthetic-data-generation-ui/server/server.mjs",
-    "test:ci":"ng test --watch=false --no-progress --browsers=ChromeHeadless"
+    "test:ci": "ng test --watch=false --no-progress --browsers=ChromeHeadless"
   },
   "private": true,
   "dependencies": {
