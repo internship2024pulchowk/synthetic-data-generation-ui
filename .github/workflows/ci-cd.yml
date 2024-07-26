@@ -19,14 +19,14 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x, 16.x]
+        node-version: [20]
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
 
@@ -51,14 +51,15 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 14.x
+          node-version: 20.x
 
       - name: Install dependencies
-        run: npm install
-
+        run: npm ci
+        
+      - name: Run tests
+        run: npm run test:ci
+      
       - name: Build project
         run: npm run build
 
-      - name: Deploy to production
-        run: echo "Deploying to production server..."
-        # Add your deployment script/commands here
+      
